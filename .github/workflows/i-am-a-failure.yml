@@ -1,0 +1,14 @@
+name: A Job That Always Fails
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Runs a single command using the runners shell
+      - name: This will always fail
+        run: exit(1)
