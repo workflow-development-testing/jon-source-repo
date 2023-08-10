@@ -4,7 +4,7 @@ jobs:
   job-one:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "this is a new job that should not be run"
+      - run: echo "you should not see me"
   job-two:
     runs-on: ubuntu-latest
     needs: job-one
