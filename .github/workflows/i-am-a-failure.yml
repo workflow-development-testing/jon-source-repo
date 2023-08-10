@@ -1,18 +1,17 @@
-name: A Job That Always Fails
-
-on:
-  pull_request:
-  workflow_dispatch:
-
+name: Failing Job
+on: [workflow_dispatch, pull_request, push]
 jobs:
-  build:
+  job-one:
     runs-on: ubuntu-latest
-
     steps:
-      # Runs a single command using the runners shell
-      - name: This will always fail
-        run: exit 1
-  test: 
+      - run: echo "first" && exit 1
+  job-two:
     runs-on: ubuntu-latest
-    steps: 
-      run: echo "i like dog"
+    needs: job-one
+    steps:
+      - run: echo "second"
+  retry-three:
+    runs-on: ubuntu-latest
+    needs: job-two
+    steps:
+      - run: echo "third"
