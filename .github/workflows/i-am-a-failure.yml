@@ -11,4 +11,4 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: This will always fail
-        run: echo cats
+        run: exit 1
