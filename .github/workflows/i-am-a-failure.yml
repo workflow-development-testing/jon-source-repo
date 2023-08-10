@@ -12,3 +12,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: This will always fail
         run: exit 1
+  test: 
+    runs-on: ubuntu-latest
+    steps: 
+      run: echo "i like dog"
