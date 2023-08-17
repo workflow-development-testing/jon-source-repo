@@ -1,0 +1,14 @@
+name: A Failing Workflow with a Merge Group Trigger
+on:
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+jobs:
+  failure:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+      # Runs a single command using the runners shell
+      - name: A failing step
+        run: exit 1
